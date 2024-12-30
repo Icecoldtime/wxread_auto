@@ -2,7 +2,7 @@ name: wxread
 
 on:
   schedule:
-    - cron: '0 17 * * *'  # 每天北京时间凌晨1点执行（UTC时间17点）
+    - cron: '0 13 * * *'  # 每天北京时间凌晨1点执行（UTC时间17点）
   workflow_dispatch:  # 手动触发
 
 jobs:
@@ -11,6 +11,12 @@ jobs:
     environment: AutoRead  # 指定环境
 
     steps:
+
+    - name: Add random delay
+      run: |
+        RANDOM_DELAY=$((RANDOM % 60))  # 生成 0 到 60 秒的随机延迟（最多1小时）
+        echo "Random delay: $RANDOM_DELAY seconds"
+        sleep $RANDOM_DELAY
 
     - name: Set DNS to Google's DNS
       run: |
