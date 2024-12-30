@@ -14,7 +14,7 @@ jobs:
 
     - name: Add random delay
       run: |
-        RANDOM_DELAY=$((RANDOM % 60))  # 生成 0 到 60 秒的随机延迟（最多1小时）
+        RANDOM_DELAY=$((RANDOM % 600))  # 生成 0 到 600 秒的随机延迟（最多1小时）
         echo "Random delay: $RANDOM_DELAY seconds"
         sleep $RANDOM_DELAY
 
